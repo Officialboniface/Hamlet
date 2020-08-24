@@ -9,4 +9,7 @@
     <string name="send_an_email">SEND AN EMAIL</string>
     <string name="hello">Hello,</string>
     <string name="search">Search</string>
+    <string name="full_name">FULL NAME</string>
+    <string name="gender">GENDER</string>
+    <string name="date_of_birth">DATE OF BIRTH</string>
 </resources>
