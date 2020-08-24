@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Hamlet</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="personal_info">Personal Info</string>
+    <string name="employment_info">Employment Info</string>
+    <string name="employment_type">Employment Type</string>
+    <string name="date_hired">Date Hired</string>
+    <string name="salary">Salary</string>
+    <string name="send_an_email">SEND AN EMAIL</string>
+    <string name="hello">Hello,</string>
+    <string name="search">Search</string>
+</resources>
