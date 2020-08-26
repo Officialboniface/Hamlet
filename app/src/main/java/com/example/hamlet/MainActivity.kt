@@ -1,9 +1,11 @@
 package com.example.hamlet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.hamlet.databinding.ActivityMainBinding
+import com.example.hamlet.ui.ProfileActivity
 
 private lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
@@ -20,5 +22,9 @@ class MainActivity : AppCompatActivity() {
 
     fun goToProfile(view: View) {
 
+        val intent = Intent(this, ProfileActivity::class.java)
+
+
+        startActivity(intent)
     }
 }

@@ -1,54 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ProfileActivity">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/profile_appBar_layout"
-        app:layout_constraintTop_toTopOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-
-
-
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/profile_tab"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/profile_appBar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:tabGravity="fill"
-            app:tabInlineLabel="true"
-            app:tabMode="fixed"
-            app:tabTextColor="#0065FC">
-        </com.google.android.material.tabs.TabLayout>
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:onClick="goToMainActivity"
+                android:layout_width="match_parent"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:layout_scrollFlags="enterAlways|scroll"
+                android:layout_height="35dp">
+<!--                <TextView-->
+<!--                    android:id="@+id/student_Name"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:text="Profile"-->
+<!--                    android:textColor="#fff"-->
+<!--                    android:textSize="20sp" />-->
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/profile_tab"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:tabGravity="fill"
+                app:tabInlineLabel="true"
+                app:tabMode="fixed"
+                app:tabTextColor="#fff">
+
+            </com.google.android.material.tabs.TabLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
 
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/profile_viewPager"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_appBar_layout"
-        android:layout_height="match_parent">
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/profile_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_appBar_layout">
 
 
-    </androidx.viewpager.widget.ViewPager>
+        </androidx.viewpager.widget.ViewPager>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.core.widget.NestedScrollView>
