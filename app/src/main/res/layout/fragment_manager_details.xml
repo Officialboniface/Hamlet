@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:background="@drawable/background"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_profile_ui"
     tools:context=".fragments.companyfragment.ManagerDetailsFragment">
 
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/manager_picture"
                 android:layout_width="95dp"
                 android:layout_height="95dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="42dp"
+                android:elevation="4dp"
                 app:civ_border_color="#EEF1F4"
                 app:civ_border_width="2dp"
                 app:layout_constraintHorizontal_bias="0.51"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/managers_name"
@@ -55,25 +55,20 @@
                 android:text=""
                 android:textColor="#EEF1F4"
                 android:textSize="18sp"
-                app:drawableStartCompat="@drawable/globe"
+                app:drawableStartCompat="@drawable/ic_globe"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="@id/managers_name"
                 app:layout_constraintTop_toBottomOf="@id/managers_name" />
-
-
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="35dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@drawable/profile_background"
                 android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/managers_email">
-
-
-
 
 
                 <TextView
@@ -83,10 +78,9 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/company_name"
                     android:textColor="#505F75"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
                 <TextView
@@ -119,8 +113,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/manager_address"
                     android:textColor="#505F75"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view3" />
 
@@ -155,8 +148,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/manager_phone_number"
                     android:textColor="#505F75"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
+                    android:textSize="12sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/view4" />
 
@@ -177,12 +169,11 @@
                     android:id="@+id/view5"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="25dp"
                     android:background="#BAB8B8"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/manager_phone_number" />
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

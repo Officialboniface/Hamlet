@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/ic_profile_ui">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ic_arrow_back"
+            android:background="@drawable/ic_back_arrow_white"
             app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -27,8 +27,9 @@
             android:id="@+id/employees_picture"
             android:layout_width="95dp"
             android:layout_height="95dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="42dp"
             app:civ_border_color="#EEF1F4"
+            android:elevation="4dp"
             app:civ_border_width="2dp"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -59,7 +60,7 @@
             android:text=""
             android:textColor="#EEF1F4"
             android:textSize="18sp"
-            app:drawableStartCompat="@drawable/bcase"
+            app:drawableStartCompat="@drawable/ic_bag"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/employees_name"
             app:layout_constraintTop_toBottomOf="@id/employees_name" />
@@ -69,7 +70,7 @@
             android:id="@+id/name_cardView"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_margin="28dp"
+            android:layout_margin="18dp"
             app:cardBackgroundColor="#2A7CF8"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
@@ -91,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/date_hired"
                     android:textColor="#EEF1F4"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintHorizontal_bias="0.14"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/view_1"
@@ -104,7 +105,7 @@
                     android:layout_marginTop="8dp"
                     android:text=""
                     android:textColor="#EEF1F4"
-                    android:textSize="19sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -131,7 +132,7 @@
                     android:text="@string/salary"
                     app:layout_constraintRight_toRightOf="@id/view_2"
                     android:textColor="#EEF1F4"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintLeft_toRightOf="@id/view_1"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -142,7 +143,7 @@
                     android:layout_marginTop="8dp"
                     android:text=""
                     android:textColor="#EEF1F4"
-                    android:textSize="19sp"
+                    android:textSize="14sp"
                     app:layout_constraintRight_toRightOf="@id/salary_tv"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -169,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/employment_type"
                     android:textColor="#EEF1F4"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:layout_marginStart="10dp"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintLeft_toRightOf="@id/view_2"
@@ -183,7 +184,7 @@
                     android:layout_marginTop="8dp"
                     android:text=""
                     android:textColor="#EEF1F4"
-                    android:textSize="19sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -204,7 +205,7 @@
             android:gravity="center"
             android:text="@string/send_an_email"
             android:textColor="#0065FC"
-            android:textSize="20sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/name_cardView" />
 
