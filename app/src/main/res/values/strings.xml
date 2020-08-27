@@ -12,4 +12,25 @@
     <string name="full_name">FULL NAME</string>
     <string name="gender">GENDER</string>
     <string name="date_of_birth">DATE OF BIRTH</string>
+    <string name="work_location">WORK LOCATION</string>
+    <string name="department">DEPARTMENT</string>
+    <string name="job_category">JOB CATEGORY</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="company_name">COMPANY NAME</string>
+    <string name="manager_address">MANAGER ADDRESS</string>
+    <string name="manager_phone_number">MANAGER PHONE NUMBER</string>
+    <string name="email">EMAIL</string>
+    <string name="home_address">HOME ADDRESS</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="emergency_number">EMERGENCY NUMBER</string>
+    <string name="contact_name">CONTACT NAME</string>
+    <string name="total_employees">Total Employees</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="services">SERVICES</string>
+    <string name="company_address">COMPANY ADDRESS</string>
+    <string name="company_website">COMPANY WEBSITE</string>
+    <string name="company_phone_number">COMPANY PHONE NUMBER</string>
+    <string name="zipcode">ZIPCODE</string>
 </resources>
