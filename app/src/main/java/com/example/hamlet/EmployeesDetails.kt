@@ -7,8 +7,6 @@ import com.example.hamlet.fragments.employeefragment.EmploymentInfoFragment
 import com.example.hamlet.fragments.employeefragment.PersonalInfoFragment
 import kotlinx.android.synthetic.main.activity_employees_details.*
 
-//
-//lateinit var binding: ActivityEmployeesDetailsBinding
 
 class EmployeesDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
