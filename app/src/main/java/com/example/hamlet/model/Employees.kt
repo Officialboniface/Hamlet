@@ -1,4 +1,4 @@
-package com.example.hamlet
+package com.example.hamlet.model
 
 data class Employees(
     var employee_name: String,
@@ -12,4 +12,3 @@ data class EmployeesDetail( var employee_dob: Int,
                             var employee_gender: String,
                             var employee_department: String,
                             var employee_salary: String)
-
