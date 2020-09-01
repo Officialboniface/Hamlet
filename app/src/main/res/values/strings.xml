@@ -20,7 +20,7 @@
     <string name="company_name">COMPANY NAME</string>
     <string name="manager_address">MANAGER ADDRESS</string>
     <string name="manager_phone_number">MANAGER PHONE NUMBER</string>
-    <string name="email">EMAIL</string>
+    <string name="email">Email</string>
     <string name="home_address">HOME ADDRESS</string>
     <string name="phone_number">PHONE NUMBER</string>
     <string name="emergency_number">EMERGENCY NUMBER</string>
@@ -33,4 +33,8 @@
     <string name="company_website">COMPANY WEBSITE</string>
     <string name="company_phone_number">COMPANY PHONE NUMBER</string>
     <string name="zipcode">ZIPCODE</string>
+    <string name="hamlet">HAMLET</string>
+    <string name="login">LOGIN</string>
+    <string name="forgot_password">forgot password?</string>
+    <string name="password">Password</string>
 </resources>

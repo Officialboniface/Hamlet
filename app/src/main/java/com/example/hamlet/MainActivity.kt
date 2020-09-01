@@ -10,6 +10,7 @@ import com.example.hamlet.model.Employees
 import com.example.hamlet.ui.ProfileActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 private lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +30,6 @@ private fun showEmployees (employees: List<Employees>) {
     fun goToProfile(view: View) {
 
         val intent = Intent(this, ProfileActivity::class.java)
-
 
         startActivity(intent)
     }
