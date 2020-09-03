@@ -1,13 +1,26 @@
 package com.example.hamlet
 
 import android.content.Context
-import java.lang.reflect.Constructor
+
+class SharedPrefManagerPrivate constructor(private val mCtx: Context) {
+
+    companion object {
+        const val USER_SHARED_PREF = "hamlet_android_app"
+    }
+    private val sharedPref = mCtx.getSharedPreferences(USER_SHARED_PREF, Context.MODE_PRIVATE)
+
+    /**
+     * save user token in sharedpreference
+     */
+     fun saveToken(token: String) {
+        sharedPref.edit().putString("token", token).apply()
+    }
+
+    /**
+     * get saved user token from sharedpreference
+     */
+     fun getToken(): String = sharedPref.getString("token", "") ?: ""
 
 
-class SharedPrefManagerprivate constructor(private val mCtx: Context) {
-    //val isLoggedIn: Boolean
-
-//    private fun saveToSharedPref(){
-//        val sharedPref = getSharedPreferences(USER_SHARED_PREF, Context.MODE_PRIVATE)
-//    }
 }
+

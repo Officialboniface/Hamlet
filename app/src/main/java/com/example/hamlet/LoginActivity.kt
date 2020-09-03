@@ -52,6 +52,11 @@ class LoginActivity : AppCompatActivity() {
 
                             //SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.user!!)
 
+                            /**
+                             * save logged in user token
+                             */
+                            SharedPrefManagerPrivate(applicationContext).saveToken(response.body()!!.token)
+
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
