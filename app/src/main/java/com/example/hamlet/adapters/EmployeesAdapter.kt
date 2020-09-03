@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hamlet.model.Employees
 import com.example.hamlet.R
+import com.example.hamlet.model.Job_details
 import kotlinx.android.synthetic.main.employees.view.*
-import kotlinx.android.synthetic.main.employees.view.employees_name
 
 
 class EmployeesAdapter(
@@ -41,19 +41,19 @@ class EmployeesAdapter(
 
 class EmployeesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    var employees_name = itemView.employees_name
-//    var employees_dob = itemView.employees_dob_text
-    var employees_profile_picture = itemView.employees_profile_picture
+    var first_name = itemView.first_name
+    var last_name = itemView.lst_name
+    var employees_profile_picture = itemView.profile_pic
     var employees_role = itemView.employee_role
 
 
 
 
-    fun initialize(item: Employees, action: OnEmployeesItemClickListener) {
+    fun initialize(item: Employees,  action: OnEmployeesItemClickListener) {
 
-        employees_name.text = item.employee_name
-        employees_role.text = item.job_title
-        employees_profile_picture.setImageResource(item.employee_image)
+        first_name.text = item.first_name
+
+        employees_profile_picture.setImageResource(item.profile_pic)
 
 
 
