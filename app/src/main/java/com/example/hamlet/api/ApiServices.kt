@@ -1,5 +1,6 @@
 package com.example.hamlet.api
 
+import com.example.hamlet.model.EmployeeResponse
 import com.example.hamlet.model.Employees
 import com.example.hamlet.model.LoginResponse
 import retrofit2.Call
@@ -13,7 +14,7 @@ interface ApiServices {
 
     @FormUrlEncoded
     @GET("api/employee")
-    fun getAllEmployees(@Header("Authorization") token: String) : Call<List<Employees>>
+    fun getAllEmployees(@Header("Authorization") token: String) : Call<EmployeeResponse>
 
 
 
