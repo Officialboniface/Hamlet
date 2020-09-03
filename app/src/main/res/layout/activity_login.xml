@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="26dp"
+    android:layout_height="wrap_content"
+    android:padding="26dp"
     tools:context=".LoginActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
     <TextView
@@ -27,6 +31,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:inputType="textEmailAddress"
         android:layout_marginTop="64dp"
         android:hint="@string/email"
         app:boxStrokeColor="#BFBFBF"
@@ -38,6 +43,8 @@
         app:layout_constraintTop_toBottomOf="@id/appName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -57,10 +64,14 @@
         android:textSize="14sp"
         android:textColorHint="#666666"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:passwordToggleEnabled="true"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email_editText_id">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:maxLines="1"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -74,7 +85,6 @@
     android:layout_marginTop="64dp"
     android:background="#0065FC"
     android:text="@string/login"
-    android:onClick="goToMainActivity"
     android:textSize="18sp"
     android:textColor="#fff"
     app:layout_constraintTop_toBottomOf="@id/password_editText_id"
@@ -89,5 +99,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_Btn"
         android:layout_height="wrap_content"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

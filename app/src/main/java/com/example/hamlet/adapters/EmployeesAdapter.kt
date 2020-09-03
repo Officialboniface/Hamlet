@@ -52,7 +52,7 @@ class EmployeesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun initialize(item: Employees, action: OnEmployeesItemClickListener) {
 
         employees_name.text = item.employee_name
-        employees_role.text = item.employee_role
+        employees_role.text = item.job_title
         employees_profile_picture.setImageResource(item.employee_image)
 
 
