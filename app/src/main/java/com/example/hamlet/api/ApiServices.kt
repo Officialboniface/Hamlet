@@ -12,9 +12,8 @@ interface ApiServices {
                   @Field("password") password: String): Call<LoginResponse>
 
     @FormUrlEncoded
-    @Headers ("Authorization : bearer")
     @GET("api/employee")
-    fun getAllEmployees() : Call<List<Employees>>
+    fun getAllEmployees(@Header("Authorization") token: String) : Call<List<Employees>>
 
 
 
