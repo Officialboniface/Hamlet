@@ -18,8 +18,7 @@ class EmployeesDetails : AppCompatActivity() {
 //        firstName.text = getIntent().getStringExtra("EMPLOYEENAME")
 //        employees_role.text = getIntent().getStringExtra("EMPLOYEEROLE")
 //        employees_picture.setImageResource(getIntent().getStringExtra("EMPLOYEEIMAGE")!!.toInt())
-        val intent = Intent()
-        intent.getParcelableArrayExtra("employeeList")
+        val intent = intent.getParcelableArrayExtra("employeeDetails")
 
         setupTabs()
 

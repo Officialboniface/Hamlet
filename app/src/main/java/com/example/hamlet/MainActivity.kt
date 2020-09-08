@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     val employeesAdapter: EmployeesAdapter by lazy {
         EmployeesAdapter { employeeList ->
             val intent = Intent(applicationContext, EmployeesDetails::class.java).apply {
-                putExtra("employeeList", employeeList)
+              intent.putExtra("employeeDetails", employeeList)
 
             }
 
