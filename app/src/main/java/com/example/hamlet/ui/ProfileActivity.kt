@@ -20,8 +20,13 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-
         setupTabs()
+
+
+        arrowBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
@@ -35,11 +40,6 @@ class ProfileActivity : AppCompatActivity() {
 
     }
 
-    fun goToMainActivity(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
 
-
-        startActivity(intent)
-    }
 
 }

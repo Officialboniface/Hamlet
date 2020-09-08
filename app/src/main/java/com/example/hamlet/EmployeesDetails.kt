@@ -1,5 +1,6 @@
 package com.example.hamlet
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.hamlet.adapters.EmployeeViewPagerAdapter
@@ -14,13 +15,18 @@ class EmployeesDetails : AppCompatActivity() {
         setContentView(R.layout.activity_employees_details)
 
 
-        employees_name.text = getIntent().getStringExtra("EMPLOYEENAME")
-        employees_role.text = getIntent().getStringExtra("EMPLOYEEROLE")
-        employees_picture.setImageResource(getIntent().getStringExtra("EMPLOYEEIMAGE")!!.toInt())
-
+//        firstName.text = getIntent().getStringExtra("EMPLOYEENAME")
+//        employees_role.text = getIntent().getStringExtra("EMPLOYEEROLE")
+//        employees_picture.setImageResource(getIntent().getStringExtra("EMPLOYEEIMAGE")!!.toInt())
+        val intent = intent.getParcelableArrayExtra("employeeDetails")
 
         setupTabs()
 
+
+        arrow_back.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupTabs() {

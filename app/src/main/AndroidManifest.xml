@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.hamlet.SplashScreen">
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +22,8 @@
         <activity android:name=".LoginActivity">
 
         </activity>
-        <activity android:name=".MainActivity">
-
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".EmployeesDetails">
         </activity>
     </application>
 
