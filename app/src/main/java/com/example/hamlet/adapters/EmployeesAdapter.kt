@@ -1,74 +1,63 @@
 package com.example.hamlet.adapters
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hamlet.model.Employees
+import com.bumptech.glide.Glide
 import com.example.hamlet.R
-import com.example.hamlet.model.Job_details
+import com.example.hamlet.inflate
+import com.example.hamlet.model.EmployeeResponse
+
 import kotlinx.android.synthetic.main.employees.view.*
 
 
-class EmployeesAdapter(
-    var items: ArrayList<Employees>,
-    var ClickListener: OnEmployeesItemClickListener
-) : RecyclerView.Adapter<EmployeesViewHolder>() {
+class EmployeesAdapter (private val onClickHandler: ((EmployeeResponse.User.Employee) -> Unit) = {}) :
+    RecyclerView.Adapter<EmployeesAdapter.AllEmployeesViewHolder>() {
 
+    var employeeList = ArrayList<EmployeeResponse.User.Employee>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeesViewHolder {
-        lateinit var employeesViewHolder: EmployeesViewHolder
-
-        employeesViewHolder = EmployeesViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.employees, parent, false)
-        )
-        return employeesViewHolder
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllEmployeesViewHolder {
+        return AllEmployeesViewHolder(parent.inflate(R.layout.employees))
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return employeeList.size
     }
 
-    override fun onBindViewHolder(holder: EmployeesViewHolder, position: Int) {
-
-        holder.initialize(items.get(position), ClickListener)
-
+    override fun onBindViewHolder(holder: EmployeesAdapter.AllEmployeesViewHolder, position: Int) {
+        var employeeList = employeeList[position]
+        holder.bind(employeeList)
     }
 
+    inner class AllEmployeesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-}
+        fun bind(employeeList: EmployeeResponse.User.Employee) {
+            itemView.setOnClickListener {
+                onClickHandler(employeeList)
+            }
 
-class EmployeesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            itemView.first_name.text = employeeList.firstName
+            itemView.last_name.text = employeeList.otherNames
+            itemView.job_title.text = employeeList.jobDetails.jobTitle
 
-    var first_name = itemView.first_name
-    var last_name = itemView.lst_name
-    var employees_profile_picture = itemView.profile_pic
-    var employees_role = itemView.employee_role
-
-
-
-
-    fun initialize(item: Employees,  action: OnEmployeesItemClickListener) {
-
-        first_name.text = item.first_name
-
-        employees_profile_picture.setImageResource(item.profile_pic)
+            Glide.with(itemView.context)
+                .load(employeeList.profilePic)
+                .circleCrop()
+                .into(itemView.profile_pic)
 
 
 
 
-
-        itemView.setOnClickListener {
-            action.onItemClick(item, adapterPosition)
         }
 
     }
 
 
-}
+    fun setItems(items: List<EmployeeResponse.User.Employee>) {
+        this.employeeList.clear()
+        this.employeeList.addAll(items)
+        notifyDataSetChanged()
+    }
 
-interface OnEmployeesItemClickListener {
-    fun onItemClick(items: Employees, position: Int)
 
 }

@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
 
                         if(response.isSuccessful){
 
-                            //SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.user!!)
+//                            SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.user!!)
 
                             /**
                              * save logged in user token

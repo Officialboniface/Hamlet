@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             tools:text="Okon"
             android:textColor="#000"
@@ -36,16 +36,20 @@
             app:layout_constraintTop_toTopOf="@id/profile_pic" />
 
         <TextView
-            android:id="@+id/lst_name"
+            android:id="@+id/last_name"
             android:layout_marginStart="10dp"
             app:layout_constraintBottom_toBottomOf="@id/first_name"
             app:layout_constraintLeft_toRightOf="@id/first_name"
             app:layout_constraintTop_toTopOf="@id/first_name"
             android:layout_width="wrap_content"
+            android:textColor="#000"
+            tools:text="Etim"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/employee_role"
+            android:id="@+id/job_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -58,6 +62,13 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/first_name" />
 
+        <View
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="#BAB8B8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/job_title"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

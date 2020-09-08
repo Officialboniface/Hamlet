@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:id="@+id/arrow_back"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/ic_back_arrow_white"
             app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -27,43 +27,56 @@
             android:id="@+id/employees_picture"
             android:layout_width="95dp"
             android:layout_height="95dp"
-            android:layout_marginTop="42dp"
-            app:civ_border_color="#EEF1F4"
+            android:layout_marginTop="40dp"
             android:elevation="4dp"
+            app:civ_border_color="#EEF1F4"
             app:civ_border_width="2dp"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/arrow_back" />
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
-            android:id="@+id/employees_name"
+            android:id="@+id/firstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text=""
+            android:layout_marginTop="8dp"
+            android:paddingEnd="10dp"
             android:textColor="#EEF1F4"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/otherNames"
+            app:layout_constraintStart_toStartOf="@+id/employees_role"
             app:layout_constraintTop_toBottomOf="@id/employees_picture"
-            app:layout_constraintVertical_bias="0.0" />
+            tools:ignore="RtlSymmetry"
+            tools:text="David" />
 
+        <TextView
+            android:id="@+id/otherNames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#EEF1F4"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/firstName"
+            app:layout_constraintLeft_toRightOf="@id/firstName"
+            app:layout_constraintTop_toTopOf="@id/firstName"
+            tools:text="Chuckwu" />
 
         <TextView
             android:id="@+id/employees_role"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="8dp"
-            android:text=""
             android:textColor="#EEF1F4"
             android:textSize="18sp"
             app:drawableStartCompat="@drawable/ic_bag"
+            app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="@id/employees_name"
-            app:layout_constraintTop_toBottomOf="@id/employees_name" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/firstName"
+            tools:text="Android Developer" />
 
 
         <androidx.cardview.widget.CardView
@@ -90,12 +103,12 @@
                     android:id="@+id/Dh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="@string/date_hired"
                     android:textColor="#EEF1F4"
                     android:textSize="12sp"
                     app:layout_constraintHorizontal_bias="0.14"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/view_1"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -103,7 +116,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text=""
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -111,7 +123,8 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="@id/Dh"
                     app:layout_constraintRight_toRightOf="@id/Dh"
-                    app:layout_constraintTop_toTopOf="@id/Dh" />
+                    app:layout_constraintTop_toTopOf="@id/Dh"
+                    tools:text="10/2/2020" />
 
                 <View
                     android:id="@+id/view_1"
@@ -119,77 +132,74 @@
                     android:layout_height="40dp"
                     android:background="#FFF"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.52"
                     app:layout_constraintLeft_toRightOf="@id/date_hired"
                     app:layout_constraintRight_toLeftOf="@id/view_2"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/Dh"
+                    app:layout_constraintVertical_bias="0.19999999" />
 
                 <TextView
                     android:id="@+id/salary_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:text="@string/salary"
-                    app:layout_constraintRight_toRightOf="@id/view_2"
                     android:textColor="#EEF1F4"
                     android:textSize="12sp"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintLeft_toRightOf="@id/view_1"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintRight_toLeftOf="@id/view_2"
+                    app:layout_constraintTop_toTopOf="@id/view_1" />
 
                 <TextView
                     android:id="@+id/salary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text=""
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
-                    app:layout_constraintRight_toRightOf="@id/salary_tv"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="@id/salary_tv"
-                    app:layout_constraintTop_toTopOf="@id/Dh" />
+                    app:layout_constraintRight_toRightOf="@id/salary_tv"
+                    app:layout_constraintTop_toTopOf="@id/Dh"
+                    tools:text="Uyo" />
 
                 <View
                     android:id="@+id/view_2"
                     android:layout_width="1dp"
                     android:layout_height="40dp"
                     android:background="#FFF"
-                    android:layout_marginStart="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintLeft_toRightOf="@id/salary_tv"
                     app:layout_constraintRight_toLeftOf="@id/employment_type_tv"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@id/salary_tv"
+                    app:layout_constraintVertical_bias="0.0" />
 
 
                 <TextView
                     android:id="@+id/employment_type_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="@string/employment_type"
                     android:textColor="#EEF1F4"
                     android:textSize="12sp"
-                    android:layout_marginStart="10dp"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintLeft_toRightOf="@id/view_2"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@id/view_2" />
 
                 <TextView
                     android:id="@+id/employment_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text=""
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="@id/employment_type_tv"
-                    app:layout_constraintTop_toTopOf="@id/Dh" />
+                    app:layout_constraintTop_toTopOf="@id/Dh"
+                    tools:text="Developer" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -198,9 +208,11 @@
         <TextView
             android:id="@+id/send_email_tv"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="51dp"
             android:layout_margin="28dp"
-            android:layout_marginTop="15dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="10dp"
             android:background="@drawable/send_email"
             android:gravity="center"
             android:text="@string/send_an_email"
@@ -209,20 +221,24 @@
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/name_cardView" />
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBar_layout"
-            app:layout_constraintTop_toBottomOf="@id/send_email_tv"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/tab_background"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_height="wrap_content">
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@drawable/tab_background"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/send_email_tv">
+
 
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab1"
                 android:layout_width="match_parent"
+               app:layout_constraintTop_toTopOf="parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -230,24 +246,24 @@
                 app:tabInlineLabel="true"
                 app:tabMode="fixed"
                 app:tabTextColor="#0065FC">
+
             </com.google.android.material.tabs.TabLayout>
 
-        </com.google.android.material.appbar.AppBarLayout>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tab1"
+                android:layout_height="0dp">
 
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBar_layout"
-            android:layout_height="0dp">
+            </androidx.viewpager.widget.ViewPager>
 
-
-        </androidx.viewpager.widget.ViewPager>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
