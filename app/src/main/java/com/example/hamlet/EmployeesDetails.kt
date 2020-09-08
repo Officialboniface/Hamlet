@@ -23,6 +23,11 @@ class EmployeesDetails : AppCompatActivity() {
 
         setupTabs()
 
+
+        arrow_back.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupTabs() {
