@@ -1,77 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="8dp"
     tools:context=".MainActivity">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:padding="10dp"
-    android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/hello_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/hello"
-        android:textColor="#0065FC"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/managers_name"
-        android:layout_marginStart="10dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="@id/hello_tv"
-        app:layout_constraintTop_toTopOf="@id/hello_tv"
-        app:layout_constraintLeft_toRightOf="@id/hello_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/managers_picture"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/hello_tv"
-        app:layout_constraintHorizontal_bias="0.91"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/hello_tv" />
-
-    <EditText
-        android:id="@+id/searchView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:hint="@string/search"
-        android:drawablePadding="10dp"
-        android:padding="8dp"
-        android:drawableStart="@drawable/ic_search"
-        android:autofillHints="Search"
-        android:textColorHint="#9C9D9E"
-        android:textColor="#9C9D9E"
-        android:background="@drawable/bg_search"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hello_tv"
-        android:layout_height="50dp"
-        android:inputType="text" />
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_id"
-        android:layout_marginTop="8dp"
-        tools:listitem="@layout/employees"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/hello_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/welcome"
+            android:textColor="#0065FC"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/managers_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="#0065FC"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/hello_tv"
+            app:layout_constraintLeft_toRightOf="@id/hello_tv"
+            app:layout_constraintTop_toTopOf="@id/hello_tv"
+            tools:text="Andre" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/managers_picture"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@id/hello_tv"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toRightOf="@id/managers_name"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hello_tv" />
+
+        <EditText
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="15dp"
+            android:autofillHints="Search"
+            android:background="@drawable/bg_search"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:hint="@string/search"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="#9C9D9E"
+            android:textColorHint="#9C9D9E"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hello_tv" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView">
+
+
+            <ScrollView
+                android:id="@+id/sv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_id"
+                    android:layout_width="match_parent"
+                   android:padding="4dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:listitem="@layout/employees" />
+
+
+            </ScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>

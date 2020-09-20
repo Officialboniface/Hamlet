@@ -37,7 +37,7 @@
             android:layout_marginTop="5dp"
             android:text="@string/work_location"
             android:textColor="#505F75"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view2" />
@@ -74,13 +74,13 @@
             android:text="@string/department"
             android:layout_marginTop="5dp"
             android:textColor="#505F75"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view3" />
 
         <TextView
-            android:id="@+id/email"
+            android:id="@+id/departmentTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -99,7 +99,7 @@
             android:layout_marginTop="2dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email"
+            app:layout_constraintTop_toBottomOf="@id/departmentTv"
             android:layout_height="1dp"/>
 
 
@@ -110,13 +110,13 @@
             android:text="@string/job_category"
             android:layout_marginTop="5dp"
             android:textColor="#505F75"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view4" />
 
         <TextView
-            android:id="@+id/home_address"
+            android:id="@+id/jobCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -135,11 +135,80 @@
             android:layout_marginTop="2dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_address"
+            app:layout_constraintTop_toBottomOf="@id/jobCategory"
             android:layout_height="1dp"/>
 
 
+        <TextView
+            android:id="@+id/job_description_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/job_description"
+            android:layout_marginTop="5dp"
+            android:textColor="#505F75"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view5" />
 
+        <TextView
+            android:id="@+id/job_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#102F41"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/job_description_tv" />
+
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="match_parent"
+            android:background="#BAB8B8"
+            android:layout_marginTop="2dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/job_description"
+            android:layout_height="1dp"/>
+
+
+        <TextView
+            android:id="@+id/employment_classification_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/employment_classification"
+            android:layout_marginTop="5dp"
+            android:textColor="#505F75"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view6" />
+
+        <TextView
+            android:id="@+id/employment_classification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#102F41"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/employment_classification_tv" />
+
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="match_parent"
+            android:background="#BAB8B8"
+            android:layout_marginTop="2dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/employment_classification"
+            android:layout_height="1dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

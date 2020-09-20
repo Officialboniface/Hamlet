@@ -2,20 +2,25 @@ package com.example.hamlet
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.hamlet.adapters.EmployeesAdapter
 import com.example.hamlet.api.RetrofitClient
 import com.example.hamlet.databinding.ActivityMainBinding
 import com.example.hamlet.model.EmployeeResponse
+import com.example.hamlet.model.User
 import com.example.hamlet.ui.ProfileActivity
 import kotlinx.android.synthetic.main.activity_employees_details.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.employees.*
+import kotlinx.android.synthetic.main.employees.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,11 +32,13 @@ lateinit var recyclerView: RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var user: EmployeeResponse.User
+
     val employeesAdapter: EmployeesAdapter by lazy {
         EmployeesAdapter { employeeList ->
+            Log.e("TAG", "employee list  $employeeList")
             val intent = Intent(applicationContext, EmployeesDetails::class.java).apply {
-              intent.putExtra("employeeDetails", employeeList)
-
+                putExtra("employeeDetails", employeeList)
             }
 
             startActivity(intent)
@@ -69,8 +76,16 @@ class MainActivity : AppCompatActivity() {
                 ) {
 
                     if (response.isSuccessful) {
+                        user = response.body()!!.user
 
                         employeesAdapter.setItems(response.body()!!.user.employees)
+
+                        Glide.with(this@MainActivity)
+                            .load(response.body()!!.user.profile.profilePic)
+                            .circleCrop()
+                            .into(managers_picture)
+
+                        managers_name.text = response.body()!!.user.profile.firstName
 
 
                     } else {
@@ -88,7 +103,12 @@ class MainActivity : AppCompatActivity() {
 
 
         managers_picture.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
+
+
+            val intent = Intent(this, ProfileActivity::class.java).apply {
+                Log.e("TAG", "employee list  ${employeesAdapter.employeeList}")
+                putExtra("managerDetails", user)
+            }
 
             startActivity(intent)
         }
@@ -96,10 +116,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-//    fun goToProfile(view: View) {
-//
-//        val intent = Intent(this, ProfileActivity::class.java)
-//
-//        startActivity(intent)
-//    }
+
+
 }

@@ -8,20 +8,19 @@ import kotlinx.android.parcel.Parcelize
 data class EmployeeResponse(
     val user: User
 ) {
+    @Parcelize
     data class User(
         val id: Int,
         val username: String,
         val email: String,
-        @SerializedName("email_verified_at")
-        val emailVerifiedAt: Any,
-        @SerializedName("created_at")
-        val createdAt: Any,
-        @SerializedName("updated_at")
-        val updatedAt: Any,
+        @SerializedName("company")
         val company: Company,
+        @SerializedName("profile")
         val profile: Profile,
         val employees: List<Employee>
-    ) {
+    ): Parcelable
+    {
+        @Parcelize
         data class Company(
             val id: Int,
             @SerializedName("user_id")
@@ -44,26 +43,23 @@ data class EmployeeResponse(
             val noOfEmployees: String,
             @SerializedName("company_logo")
             val companyLogo: String,
+            @SerializedName("services")
             val services: String,
-            @SerializedName("created_at")
-            val createdAt: String,
-            @SerializedName("updated_at")
-            val updatedAt: String,
             @SerializedName("company_departments")
             val companyDepartments: List<CompanyDepartment>
-        ) {
+        ): Parcelable
+        {
+            @Parcelize
             data class CompanyDepartment(
                 val id: Int,
                 val name: String,
-                @SerializedName("company_id")
-                val companyId: Int,
-                @SerializedName("created_at")
-                val createdAt: Any,
-                @SerializedName("updated_at")
-                val updatedAt: Any
-            )
-        }
 
+                @SerializedName("company_id")
+                val companyId: Int
+
+            ): Parcelable
+        }
+        @Parcelize
         data class Profile(
             val id: Int,
             @SerializedName("user_id")
@@ -72,10 +68,11 @@ data class EmployeeResponse(
             val firstName: String,
             @SerializedName("last_name")
             val lastName: String,
+            @SerializedName("address")
             val address: String,
             @SerializedName("profile_pic")
             val profilePic: String
-        )
+        ): Parcelable
 
         @Parcelize
         data class Employee(
@@ -122,22 +119,21 @@ data class EmployeeResponse(
                 @SerializedName("work_location")
                 val workLocation: String
 
-            ) :
+            ) :Parcelable
 
-                Parcelable {
-
+            {
                 @Parcelize
-                data class ContactInfo(
-                    val id: Int,
-                    @SerializedName("employee_id")
-                    val employeeId: Int,
-                    val phone: String,
-                    val email: String,
-                    @SerializedName("emergency_contact")
-                    val emergencyContact: String
+            data class ContactInfo(
+                val id: Int,
+                @SerializedName("employee_id")
+                val employeeId: Int,
+                val phone: String,
+                val email: String,
+                @SerializedName("emergency_contact")
+                val emergencyContact: String
 
-                ) : Parcelable
-            }
+            ) : Parcelable
+        }
         }
     }
 }
