@@ -28,7 +28,7 @@
             android:id="@+id/first_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="4dp"
             android:gravity="center_horizontal"
             tools:text="Emmanuel"
             android:textColor="#000"
@@ -40,7 +40,7 @@
 
         <TextView
             android:id="@+id/last_name"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="6dp"
             app:layout_constraintBottom_toBottomOf="@id/first_name"
             app:layout_constraintLeft_toRightOf="@id/first_name"
             app:layout_constraintTop_toTopOf="@id/first_name"

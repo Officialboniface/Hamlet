@@ -103,7 +103,7 @@
                     android:text="@string/date_hired"
                     android:textColor="#EEF1F4"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.18"
+                    app:layout_constraintHorizontal_bias="0.2"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/view_1"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -129,7 +129,7 @@
                     android:layout_height="40dp"
                     android:background="#FFF"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.39"
+                    app:layout_constraintHorizontal_bias="0.28"
                     app:layout_constraintLeft_toRightOf="@id/date_hired"
                     app:layout_constraintRight_toLeftOf="@id/view_2"
                     app:layout_constraintTop_toTopOf="@+id/Dh"
@@ -142,8 +142,8 @@
                     android:text="@string/salary"
                     android:textColor="#EEF1F4"
                     android:textSize="12sp"
-                    app:layout_constraintLeft_toRightOf="@id/view_1"
-                    app:layout_constraintRight_toLeftOf="@id/view_2"
+                    app:layout_constraintLeft_toLeftOf="@id/view_1"
+                    app:layout_constraintRight_toRightOf="@id/view_2"
                     app:layout_constraintTop_toTopOf="@id/view_1" />
 
                 <TextView
@@ -151,13 +151,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:gravity="center_horizontal"
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/view_1"
-                    app:layout_constraintRight_toLeftOf="@id/view_2"
+                    app:layout_constraintLeft_toLeftOf="@id/salary_tv"
+                    app:layout_constraintRight_toRightOf="@id/salary_tv"
                     app:layout_constraintTop_toTopOf="@id/Dh"
                     tools:text="$120000" />
 
@@ -167,6 +166,7 @@
                     android:layout_width="1dp"
                     android:layout_height="40dp"
                     android:background="#FFF"
+                    android:layout_marginStart="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/salary_tv"
                     app:layout_constraintRight_toLeftOf="@id/employment_type_tv"
