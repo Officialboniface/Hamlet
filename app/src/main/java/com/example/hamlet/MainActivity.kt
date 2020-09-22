@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.example.hamlet.adapters.EmployeesAdapter
 import com.example.hamlet.api.RetrofitClient
@@ -32,6 +33,14 @@ lateinit var recyclerView: RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
+    private val refreshListener = SwipeRefreshLayout.OnRefreshListener {
+        swipeRefreshLayout.isRefreshing = true
+
+        // call api to reload the screen
+
+
+    }
+
     lateinit var user: EmployeeResponse.User
 
     val employeesAdapter: EmployeesAdapter by lazy {
@@ -52,21 +61,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
+        swipeRefreshLayout.setOnRefreshListener(refreshListener)
+        swipeRefreshLayout.isRefreshing = false
         recyclerView = view.findViewById(R.id.recyclerView_id)
         recyclerView.adapter = employeesAdapter
         linearLayoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = linearLayoutManager
-
         RetrofitClient.instance.getAllEmployees(
             "Bearer " + SharedPrefManagerPrivate(
                 applicationContext
             ).getToken()
         )
-
             .enqueue(object : Callback<EmployeeResponse> {
                 override fun onFailure(call: Call<EmployeeResponse>, t: Throwable) {
                     Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                    swipeRefreshLayout.isRefreshing = false
                     println("Failed to load employee list: ${t.message}")
                 }
 
@@ -79,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                         user = response.body()!!.user
 
                         employeesAdapter.setItems(response.body()!!.user.employees)
-
+                        swipeRefreshLayout.isRefreshing = false
                         Glide.with(this@MainActivity)
                             .load(response.body()!!.user.profile.profilePic)
                             .circleCrop()
@@ -114,7 +123,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
 
 
 
