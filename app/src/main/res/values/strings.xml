@@ -38,6 +38,7 @@
     <string name="welcome">Welcome,</string>
     <string name="job_description">JOB DESCRIPTION</string>
     <string name="employment_classification">EMPLOYMENT CLASSIFICATION</string>
+    <string name="logout">Logout</string>
 
 
 </resources>

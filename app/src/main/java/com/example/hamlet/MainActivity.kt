@@ -2,12 +2,11 @@ package com.example.hamlet
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -16,57 +15,81 @@ import com.example.hamlet.adapters.EmployeesAdapter
 import com.example.hamlet.api.RetrofitClient
 import com.example.hamlet.databinding.ActivityMainBinding
 import com.example.hamlet.model.EmployeeResponse
-import com.example.hamlet.model.User
 import com.example.hamlet.ui.ProfileActivity
-import kotlinx.android.synthetic.main.activity_employees_details.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.employees.*
-import kotlinx.android.synthetic.main.employees.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Locale.filter
 
 private lateinit var linearLayoutManager: LinearLayoutManager
 private lateinit var binding: ActivityMainBinding
 lateinit var recyclerView: RecyclerView
 
+private var filterEmployees = ArrayList<EmployeeResponse.User.Employee>()
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), EmployeesAdapter.OnSearchClick {
+
+    private val employeesAdapter = EmployeesAdapter(filterEmployees, this)
 
     private val refreshListener = SwipeRefreshLayout.OnRefreshListener {
         swipeRefreshLayout.isRefreshing = true
-
         // call api to reload the screen
-
+        fetchEmployees()
 
     }
+
 
     lateinit var user: EmployeeResponse.User
 
-    val employeesAdapter: EmployeesAdapter by lazy {
-        EmployeesAdapter { employeeList ->
-            Log.e("TAG", "employee list  $employeeList")
-            val intent = Intent(applicationContext, EmployeesDetails::class.java).apply {
-                putExtra("employeeDetails", employeeList)
-            }
 
-            startActivity(intent)
-
-
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        fetchEmployees()
+
+        searchView.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+
+            }
+
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+
+            }
+
+            override fun afterTextChanged(editable: Editable) {
+                employeesAdapter.filter.filter(editable)
+
+            }
+        })
+
+
+
         swipeRefreshLayout.setOnRefreshListener(refreshListener)
-        swipeRefreshLayout.isRefreshing = false
         recyclerView = view.findViewById(R.id.recyclerView_id)
         recyclerView.adapter = employeesAdapter
         linearLayoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = linearLayoutManager
+
+        managers_picture.setOnClickListener {
+
+
+            val intent = Intent(this, ProfileActivity::class.java).apply {
+                Log.e("TAG", "employee list  ${employeesAdapter.employeeList}")
+                putExtra("managerDetails", user)
+            }
+
+            startActivity(intent)
+        }
+
+    }
+
+    private fun fetchEmployees() {
         RetrofitClient.instance.getAllEmployees(
             "Bearer " + SharedPrefManagerPrivate(
                 applicationContext
@@ -108,22 +131,15 @@ class MainActivity : AppCompatActivity() {
 
                 }
             })
-
-
-
-        managers_picture.setOnClickListener {
-
-
-            val intent = Intent(this, ProfileActivity::class.java).apply {
-                Log.e("TAG", "employee list  ${employeesAdapter.employeeList}")
-                putExtra("managerDetails", user)
-            }
-
-            startActivity(intent)
-        }
-
     }
 
+    override fun onClick(employee: EmployeeResponse.User.Employee) {
+        Log.e("TAG", "employee list  $employee")
+        val intent = Intent(applicationContext, EmployeesDetails::class.java).apply {
+            putExtra("employeeDetails", employee)
 
+        }
 
+        startActivity(intent)
+    }
 }

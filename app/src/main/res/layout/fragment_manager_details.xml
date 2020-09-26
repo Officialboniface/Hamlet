@@ -19,7 +19,7 @@
                 android:id="@+id/manager_picture"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:elevation="4dp"
                 app:civ_border_color="#EEF1F4"
                 app:civ_border_width="2dp"
@@ -32,7 +32,7 @@
                 android:id="@+id/managers_first_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
                 android:textColor="#EEF1F4"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="4dp"
                 android:textColor="#EEF1F4"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 app:drawableStartCompat="@drawable/ic_globe"
                 app:layout_constraintLeft_toLeftOf="@id/manager_picture"
                 app:layout_constraintRight_toRightOf="@id/manager_picture"
@@ -74,23 +74,41 @@
                 tools:text="www.spynaija.com" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/logout_tv"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_margin="18dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/send_email"
+            android:gravity="center"
+            android:text="@string/logout"
+            android:textAllCaps="true"
+            android:textColor="#0065FC"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/managers_email" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/profile_background"
                 android:padding="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/managers_email">
+                app:layout_constraintTop_toBottomOf="@id/logout_tv">
 
 
                 <TextView
                     android:id="@+id/company_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/company_name"
                     android:textColor="#505F75"
                     android:textSize="12sp"
@@ -99,7 +117,7 @@
 
 
                 <TextView
-                    android:id="@+id/company_service"
+                    android:id="@+id/manager_company_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -118,7 +136,7 @@
                     android:background="#BAB8B8"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/company_service" />
+                    app:layout_constraintTop_toBottomOf="@id/manager_company_name" />
 
 
                 <TextView

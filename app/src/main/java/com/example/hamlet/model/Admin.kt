@@ -13,6 +13,7 @@ data class EmployeeResponse(
         val id: Int,
         val username: String,
         val email: String,
+
         @SerializedName("company")
         val company: Company,
         @SerializedName("profile")
@@ -64,6 +65,8 @@ data class EmployeeResponse(
             val id: Int,
             @SerializedName("user_id")
             val userId: Int,
+            @SerializedName("phone")
+            val phone: String,
             @SerializedName("first_name")
             val firstName: String,
             @SerializedName("last_name")

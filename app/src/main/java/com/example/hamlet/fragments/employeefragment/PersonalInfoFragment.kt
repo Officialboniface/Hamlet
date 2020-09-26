@@ -28,7 +28,6 @@ class PersonalInfoFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-//        activity.intent.getParcelableExtra<EmployeesDetails>("employeeDetails")
         return inflater.inflate(R.layout.fragment_personal_info, container, false)
     }
 

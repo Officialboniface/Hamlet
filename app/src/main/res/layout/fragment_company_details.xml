@@ -30,7 +30,7 @@
             android:id="@+id/company_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:textColor="#EEF1F4"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -46,7 +46,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
-            android:gravity="center_horizontal"
             android:textColor="#EEF1F4"
             android:textSize="14sp"
             app:drawableStartCompat="@drawable/ic_globe"
@@ -81,26 +80,22 @@
                     android:layout_height="wrap_content"
                     android:text="@string/total_employees"
                     android:textColor="#EEF1F4"
+                    android:layout_marginTop="10dp"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="parent"
-
-
-                    app:layout_constraintTop_toTopOf="@id/view_1" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/total_employees"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
                     android:textColor="#EEF1F4"
-
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="@id/total_employees_tv"
                     app:layout_constraintRight_toRightOf="@id/total_employees_tv"
-                    app:layout_constraintTop_toTopOf="@id/total_employees_tv"
+                    app:layout_constraintTop_toBottomOf="@id/total_employees_tv"
                     tools:text="1000" />
 
                 <View
@@ -109,10 +104,11 @@
                     android:layout_height="40dp"
                     android:background="#FFF"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.23"
+                    app:layout_constraintHorizontal_bias="0.05"
                     app:layout_constraintLeft_toRightOf="@id/total_employees_tv"
                     app:layout_constraintRight_toLeftOf="@id/view_2"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@id/total_employees_tv"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/company_city_tv"
@@ -121,24 +117,24 @@
                     android:text="@string/city"
                     android:textColor="#EEF1F4"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.50"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toRightOf="@id/view_1"
                     app:layout_constraintRight_toLeftOf="@id/view_2"
-                    app:layout_constraintTop_toTopOf="@id/view_1" />
+                    app:layout_constraintTop_toTopOf="@id/total_employees_tv" />
 
                 <TextView
                     android:id="@+id/city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="@id/company_city_tv"
                     app:layout_constraintRight_toRightOf="@id/company_city_tv"
-                    app:layout_constraintTop_toTopOf="@id/total_employees_tv"
+                    app:layout_constraintTop_toBottomOf="@id/company_city_tv"
                     tools:text="Uyo" />
+
 
                 <View
                     android:id="@+id/view_2"
@@ -146,11 +142,9 @@
                     android:layout_height="40dp"
                     android:background="#FFF"
                     app:layout_constraintBottom_toBottomOf="@id/view_1"
-                    app:layout_constraintHorizontal_bias="0.18"
                     app:layout_constraintLeft_toRightOf="@id/company_city_tv"
                     app:layout_constraintRight_toLeftOf="@id/company_state_tv"
-                    app:layout_constraintTop_toTopOf="@id/view_1" />
-
+                    app:layout_constraintTop_toTopOf="@id/company_city_tv" />
 
                 <TextView
                     android:id="@+id/company_state_tv"
@@ -161,24 +155,21 @@
                     android:textSize="12sp"
                     app:layout_constraintLeft_toRightOf="@id/view_2"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/view_2" />
+                    app:layout_constraintTop_toTopOf="@id/company_city_tv" />
 
                 <TextView
                     android:id="@+id/company_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_horizontal"
+                    android:layout_marginTop="4dp"
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/city"
-                    app:layout_constraintHorizontal_bias="0.50"
                     app:layout_constraintLeft_toLeftOf="@id/company_state_tv"
                     app:layout_constraintRight_toRightOf="@id/company_state_tv"
                     app:layout_constraintTop_toBottomOf="@id/company_state_tv"
-                    app:layout_constraintVertical_bias="1.0"
-                    tools:text="Akwa Ibom " />
+
+                    tools:text="Akwa Ibom State" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
