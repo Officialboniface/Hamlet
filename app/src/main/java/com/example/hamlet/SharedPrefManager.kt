@@ -10,17 +10,23 @@ class SharedPrefManagerPrivate constructor(private val mCtx: Context) {
     private val sharedPref = mCtx.getSharedPreferences(USER_SHARED_PREF, Context.MODE_PRIVATE)
 
     /**
-     * save user token in sharedpreference
+     * save user token in sharedPreference
      */
      fun saveToken(token: String) {
         sharedPref.edit().putString("token", token).apply()
     }
 
     /**
-     * get saved user token from sharedpreference
+     * get saved user token from sharedPreference
      */
      fun getToken(): String = sharedPref.getString("token", "") ?: ""
-
+/*
+logout user
+ */
+//    fun clear(){
+//        mCtx.getSharedPreferences(USER_SHARED_PREF, Context.MODE_PRIVATE)
+//
+//    }
 
 }
 

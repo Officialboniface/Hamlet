@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_marginTop="140dp"
-            android:text="@string/hamlet"
+            android:text="@string/app_name"
             android:textColor="#0065FC"
             android:textSize="36sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -31,7 +31,6 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:inputType="textEmailAddress"
             android:layout_marginTop="64dp"
             android:hint="@string/email"
             app:boxStrokeColor="#BFBFBF"
@@ -45,6 +44,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:maxLines="1"
+                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -79,10 +79,14 @@
 
 
 
-        <Button
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/login_Btn"
             android:layout_width="match_parent"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="54dp"
+            app:cornerRadius="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             android:background="#0065FC"
             android:text="@string/login"
             android:textSize="18sp"

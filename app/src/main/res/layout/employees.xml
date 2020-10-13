@@ -3,19 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:padding="6dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_height="match_parent">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_pic"
-            android:layout_width="100dp"
-            android:layout_height="70dp"
+            android:layout_width="90dp"
+            android:layout_height="60dp"
             app:civ_border_width="1dp"
+            app:civ_border_color="#14202C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,10 +28,9 @@
             android:id="@+id/first_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
             android:gravity="center_horizontal"
-            tools:text="Okon"
+            tools:text="Emmanuel"
             android:textColor="#000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -37,13 +40,13 @@
 
         <TextView
             android:id="@+id/last_name"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="6dp"
             app:layout_constraintBottom_toBottomOf="@id/first_name"
             app:layout_constraintLeft_toRightOf="@id/first_name"
             app:layout_constraintTop_toTopOf="@id/first_name"
             android:layout_width="wrap_content"
             android:textColor="#000"
-            tools:text="Etim"
+            tools:text="Google"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_height="wrap_content"/>
@@ -52,9 +55,9 @@
             android:id="@+id/job_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:gravity="center_horizontal"
-            tools:text="Engineer"
+            tools:text="Android Developer"
             android:textColor="#000"
             android:textSize="18sp"
             app:layout_constraintHorizontal_bias="0.0"
@@ -65,9 +68,11 @@
         <View
             app:layout_constraintRight_toRightOf="parent"
             android:background="#BAB8B8"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/job_title"
-            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+
+           app:layout_constraintStart_toStartOf="@id/first_name"
+            app:layout_constraintTop_toBottomOf="@id/profile_pic"
+            android:layout_width="wrap_content"
             android:layout_height="1dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

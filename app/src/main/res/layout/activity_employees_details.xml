@@ -13,28 +13,24 @@
 
         <ImageView
             android:id="@+id/arrow_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/ic_back_arrow_white"
-            app:layout_constraintHorizontal_bias="0.04"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/employees_picture"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
             android:elevation="4dp"
             app:civ_border_color="#EEF1F4"
             app:civ_border_width="2dp"
-            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/arrow_back" />
 
 
         <TextView
@@ -42,14 +38,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:paddingEnd="10dp"
+            android:layout_marginEnd="8dp"
             android:textColor="#EEF1F4"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@id/employees_picture"
             app:layout_constraintRight_toLeftOf="@id/otherNames"
-            app:layout_constraintStart_toStartOf="@+id/employees_role"
             app:layout_constraintTop_toBottomOf="@id/employees_picture"
-            tools:ignore="RtlSymmetry"
+
             tools:text="David" />
 
         <TextView
@@ -61,20 +57,20 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/firstName"
             app:layout_constraintLeft_toRightOf="@id/firstName"
+            app:layout_constraintRight_toRightOf="@id/employees_picture"
             app:layout_constraintTop_toTopOf="@id/firstName"
-            tools:text="Chuckwu" />
+            tools:text="Benjamin" />
 
         <TextView
             android:id="@+id/employees_role"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
+            android:drawablePadding="4dp"
             android:textColor="#EEF1F4"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:drawableStartCompat="@drawable/ic_bag"
-            app:layout_constraintHorizontal_bias="0.52"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/employees_picture"
+            app:layout_constraintRight_toRightOf="@id/employees_picture"
             app:layout_constraintTop_toBottomOf="@id/firstName"
             tools:text="Android Developer" />
 
@@ -103,24 +99,25 @@
                     android:id="@+id/Dh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:text="@string/date_hired"
                     android:textColor="#EEF1F4"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="0.14"
+                    app:layout_constraintHorizontal_bias="0.2"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintRight_toLeftOf="@id/view_1"
+                    app:layout_constraintTop_toTopOf="@id/view_1" />
 
                 <TextView
                     android:id="@+id/date_hired"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="15dp"
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="@id/view_1"
                     app:layout_constraintLeft_toLeftOf="@id/Dh"
                     app:layout_constraintRight_toRightOf="@id/Dh"
                     app:layout_constraintTop_toTopOf="@id/Dh"
@@ -131,11 +128,13 @@
                     android:layout_width="1dp"
                     android:layout_height="40dp"
                     android:background="#FFF"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.28"
                     app:layout_constraintLeft_toRightOf="@id/date_hired"
                     app:layout_constraintRight_toLeftOf="@id/view_2"
-                    app:layout_constraintTop_toTopOf="@+id/Dh"
-                    app:layout_constraintVertical_bias="0.19999999" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/salary_tv"
@@ -143,62 +142,66 @@
                     android:layout_height="wrap_content"
                     android:text="@string/salary"
                     android:textColor="#EEF1F4"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintLeft_toRightOf="@id/view_1"
-                    app:layout_constraintRight_toLeftOf="@id/view_2"
+                    app:layout_constraintLeft_toLeftOf="@id/view_1"
+                    app:layout_constraintRight_toRightOf="@id/view_2"
                     app:layout_constraintTop_toTopOf="@id/view_1" />
 
                 <TextView
                     android:id="@+id/salary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="15dp"
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="@id/view_1"
                     app:layout_constraintLeft_toLeftOf="@id/salary_tv"
                     app:layout_constraintRight_toRightOf="@id/salary_tv"
                     app:layout_constraintTop_toTopOf="@id/Dh"
-                    tools:text="Uyo" />
+                    tools:text="$120000" />
+
 
                 <View
                     android:id="@+id/view_2"
                     android:layout_width="1dp"
                     android:layout_height="40dp"
                     android:background="#FFF"
+                    android:layout_marginStart="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/salary_tv"
                     app:layout_constraintRight_toLeftOf="@id/employment_type_tv"
-                    app:layout_constraintTop_toTopOf="@id/salary_tv"
+                    app:layout_constraintTop_toTopOf="@id/view_1"
                     app:layout_constraintVertical_bias="0.0" />
-
 
                 <TextView
                     android:id="@+id/employment_type_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:text="@string/employment_type"
                     android:textColor="#EEF1F4"
                     android:textSize="12sp"
+                    app:layout_constraintLeft_toRightOf="@id/view_2"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/view_2" />
+                    app:layout_constraintTop_toTopOf="@id/salary_tv" />
 
                 <TextView
                     android:id="@+id/employment_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="15dp"
                     android:textColor="#EEF1F4"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="@id/salary"
                     app:layout_constraintLeft_toLeftOf="@id/employment_type_tv"
-                    app:layout_constraintTop_toTopOf="@id/Dh"
+                    app:layout_constraintRight_toRightOf="@id/employment_type_tv"
+                    app:layout_constraintTop_toTopOf="@id/salary"
+                    app:layout_constraintVertical_bias="1.0"
                     tools:text="Developer" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -209,9 +212,7 @@
             android:id="@+id/send_email_tv"
             android:layout_width="match_parent"
             android:layout_height="51dp"
-            android:layout_margin="28dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="18dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/send_email"
             android:gravity="center"
@@ -219,6 +220,8 @@
             android:textColor="#0065FC"
             android:textSize="13sp"
             android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_cardView" />
 
 
@@ -226,22 +229,21 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="15dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             android:background="@drawable/tab_background"
             android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/send_email_tv">
-
 
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab1"
                 android:layout_width="match_parent"
-               app:layout_constraintTop_toTopOf="parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:tabGravity="fill"
                 app:tabInlineLabel="true"
                 app:tabMode="fixed"
@@ -251,12 +253,12 @@
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_width="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tab1"
-                android:layout_height="0dp">
+                app:layout_constraintTop_toBottomOf="@+id/tab1">
 
 
             </androidx.viewpager.widget.ViewPager>
