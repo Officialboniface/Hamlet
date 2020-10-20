@@ -1,10 +1,16 @@
 package com.example.hamlet
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,11 +22,11 @@ import com.example.hamlet.api.RetrofitClient
 import com.example.hamlet.databinding.ActivityMainBinding
 import com.example.hamlet.model.EmployeeResponse
 import com.example.hamlet.ui.ProfileActivity
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.Locale.filter
 
 private lateinit var linearLayoutManager: LinearLayoutManager
 private lateinit var binding: ActivityMainBinding
@@ -33,16 +39,29 @@ class MainActivity : AppCompatActivity(), EmployeesAdapter.OnSearchClick {
 
     private val employeesAdapter = EmployeesAdapter(filterEmployees, this)
 
+
     private val refreshListener = SwipeRefreshLayout.OnRefreshListener {
-        swipeRefreshLayout.isRefreshing = true
-        // call api to reload the screen
-        fetchEmployees()
+
+        if (!checkNetwork(this)) {
+
+            // Toast
+            Toast.makeText(this, "No internet connection", Toast.LENGTH_LONG).show()
+
+
+            swipeRefreshLayout.isRefreshing = false
+
+        } else {
+
+            swipeRefreshLayout.isRefreshing = true
+
+            // call api to reload the screen
+            fetchEmployees()
+        }
+
 
     }
 
-
     lateinit var user: EmployeeResponse.User
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,8 +70,11 @@ class MainActivity : AppCompatActivity(), EmployeesAdapter.OnSearchClick {
         val view = binding.root
         setContentView(view)
 
+        please_wait_tv.visibility = View.VISIBLE
+
         fetchEmployees()
 
+        // Filter Employees
         searchView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
 
@@ -76,6 +98,7 @@ class MainActivity : AppCompatActivity(), EmployeesAdapter.OnSearchClick {
         linearLayoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = linearLayoutManager
 
+        // Manager's Profile Picture listener
         managers_picture.setOnClickListener {
 
 
@@ -89,12 +112,37 @@ class MainActivity : AppCompatActivity(), EmployeesAdapter.OnSearchClick {
 
     }
 
+    // Check for network connectivity
+    @SuppressLint("NewApi")
+    private fun checkNetwork(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val capabilities =
+            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        if (capabilities != null) {
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                return true
+            }
+        }
+
+        return false
+
+    }
+
+    // Api Trigger
     private fun fetchEmployees() {
+
+
         RetrofitClient.instance.getAllEmployees(
             "Bearer " + SharedPrefManagerPrivate(
                 applicationContext
             ).getToken()
+
+
         )
+
+
             .enqueue(object : Callback<EmployeeResponse> {
                 override fun onFailure(call: Call<EmployeeResponse>, t: Throwable) {
                     Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
@@ -106,28 +154,42 @@ class MainActivity : AppCompatActivity(), EmployeesAdapter.OnSearchClick {
                     call: Call<EmployeeResponse>,
                     response: Response<EmployeeResponse>
                 ) {
-
-                    if (response.isSuccessful) {
+                    if (response.body()!!.user.employees.isEmpty()) {
                         user = response.body()!!.user
-
-                        employeesAdapter.setItems(response.body()!!.user.employees)
-                        swipeRefreshLayout.isRefreshing = false
+                        empty_state_layout.visibility = View.VISIBLE
+                        please_wait_tv.visibility = View.GONE
+                        // Manager's Profile Picture
                         Glide.with(this@MainActivity)
                             .load(response.body()!!.user.profile.profilePic)
                             .circleCrop()
                             .into(managers_picture)
 
+                        // Manager's FirstName
                         managers_name.text = response.body()!!.user.profile.firstName
+                        swipeRefreshLayout.isRefreshing = false
 
 
                     } else {
-                        Toast.makeText(
-                            applicationContext,
-                            "Failed to load employee list",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        println("Failed to load employee list: ${response.body()}")
+                        if (response.isSuccessful) {
+                            user = response.body()!!.user
+
+                            employeesAdapter.setItems(response.body()!!.user.employees)
+                            swipeRefreshLayout.isRefreshing = false
+                            empty_state_layout.visibility = View.GONE
+                            please_wait_tv.visibility = View.GONE
+                            // Manager's Profile Picture
+                            Glide.with(this@MainActivity)
+                                .load(response.body()!!.user.profile.profilePic)
+                                .circleCrop()
+                                .into(managers_picture)
+
+                            // Manager's FirstName
+                            managers_name.text = response.body()!!.user.profile.firstName
+
+
+                        }
                     }
+
 
                 }
             })

@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="26dp"
     tools:context=".LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:padding="26dp"
         android:layout_height="match_parent">
-
 
         <TextView
             android:id="@+id/appName"
@@ -78,17 +77,15 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/login_Btn"
             android:layout_width="match_parent"
             android:layout_marginTop="54dp"
-            app:cornerRadius="8dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:background="#0065FC"
+            android:background="@drawable/btn_bg"
             android:text="@string/login"
+            android:elevation="0dp"
             android:textSize="18sp"
             android:textColor="#fff"
             app:layout_constraintTop_toBottomOf="@id/password_editText_id"
